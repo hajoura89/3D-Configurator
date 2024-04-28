@@ -1,31 +1,33 @@
-import * as THREE from "three"
+import React from "react";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+} from "react-router-dom";
+
 import './App.css'
-import { Canvas } from "@react-three/fiber"
-import { Header } from "./components/HomePage/Header"
-import Craft from "./components/HomePage/Craft"
-import About from "./components/HomePage/About"
-import CustomizeNow from "./components/HomePage/CustomizeNow"
-import { CanvasContainer } from "./components/CanvasContainer"
-
+import Home from "./components/Home";
+import About from "./components/Customization";
+ 
 function App() {
-
- return (
-   <>
-      <div className="">
-        <div className="h-screen w-full fixed top-0">
-          <CanvasContainer />
-        </div>
-        {/* Header Section */}
-        <Header />
-        {/* Craft  Section*/}
-        <Craft />
-        {/* About  Section*/}
-        <About />
-        {/* CustomizeNow Section */}
-        <CustomizeNow />
-      </div>
-   </>
- );
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route
+                        exact
+                        path="/"
+                        element={<Home />}
+                    />
+                    <Route
+                        exact
+                        path="/customization"
+                        element={<About />}
+                    />
+                </Routes>
+            </BrowserRouter>
+        </>
+    );
 };
-
-export default App
+ 
+export default App;

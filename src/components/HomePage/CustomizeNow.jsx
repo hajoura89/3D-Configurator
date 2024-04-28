@@ -1,7 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const CustomizeNow = () => {
-	return (
+	const navigate = useNavigate();
+  	return (
     	<section className="third-section h-screen relative ">
 			<div className="z-20 absolute top-[30%] left-24 flex flex-col justify-center border border-black-800 text-black-800 p-5 rounded-lg">
 				<h1 className="text-5xl text-pink-800 font-mynerver font-bold">
@@ -15,6 +17,8 @@ const CustomizeNow = () => {
 				</p>
 			
 				<button 
+					onClick={() =>navigate("/customization") }
+
 					className="bg-pink-500  border border-black-800 p-2 mt-2 rounded-lg text-white 
 								hover:bg-pink-500 hover:text-white transition duration-500">
 					CUSTOMIZE
