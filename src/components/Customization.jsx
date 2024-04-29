@@ -19,10 +19,6 @@ const Customization = () => {
                         Go Back Home
                     </button>
 
-                    <div className="absolute bottom-4 right-4 w-80 bg-pink-300 text-black px-4 py-2 flex flex-col gap-8 rounded-lg">
-                    <Configurator />
-                    </div>
-                    
                     <Canvas shadows camera={{ position: [0, 0, 150], fov: 40 }}>
                         <Stage environment="city" intensity={0.8}>
                             <Ring scale={-1} rotation={[0, 0.5, Math.PI]} position={[-2, 0, -2]} />
@@ -30,7 +26,9 @@ const Customization = () => {
                         <BakeShadows />
                         <OrbitControls makeDefault autoRotate />
                     </Canvas>
-                    
+                    <div className="absolute bottom-4 right-4 w-80 bg-pink-300 text-black px-4 py-2 flex flex-col gap-8 rounded-lg">
+                        <Configurator />
+                    </div>
                 </div>
             </CustomizationProvider>
         </>

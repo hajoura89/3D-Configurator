@@ -11,18 +11,22 @@ import { useCustomization } from "../contexts/RingCustomization";
 export default function Ring(props) {
   const { nodes, materials } = useGLTF('/ring.glb')
   const { diamondColor, firstMetalColor, secondMetalColor } = useCustomization();
+
+  
   return (
     <group {...props} dispose={null}>
       <group position={[0, -0.043, -0.093]}>
         <group rotation={[0, 0, 0.9]} scale={1.063}>
-          <mesh geometry={nodes.diamonds002.geometry} material={nodes.diamonds002.material} color={diamondColor.color}/>
-          <mesh geometry={nodes.diamonds001.geometry} material={nodes.diamonds001.material} color={diamondColor.color}/>
-          <mesh geometry={nodes.diamonds003.geometry} material={nodes.diamonds003.material} color={diamondColor.color}/>
-          <mesh geometry={nodes.diamonds005.geometry} material={nodes.diamonds005.material} color={diamondColor.color}/>
-          <mesh geometry={nodes.diamonds.geometry} material={nodes.diamonds.material} color={diamondColor.color}/>
-          <mesh geometry={nodes.diamonds004.geometry} material={nodes.diamonds004.material} color={diamondColor.color}/>
-          <mesh geometry={nodes.gold.geometry} material={materials.gold} color={firstMetalColor.color}/>
-          <mesh geometry={nodes.silver.geometry} material={materials.silver} color={secondMetalColor.color}/>
+          
+          <mesh castShadow receiveShadow geometry={nodes.diamonds.geometry} material={materials.diamonds} material-color={diamondColor.color}  />
+          <mesh castShadow receiveShadow geometry={nodes.diamonds001.geometry} material={materials.diamonds001} material-color={diamondColor.color}  />
+          <mesh castShadow receiveShadow geometry={nodes.diamonds002.geometry} material={materials.diamonds002} material-color={diamondColor.color} />
+          <mesh castShadow receiveShadow geometry={nodes.diamonds003.geometry} material={materials.diamonds003} material-color={diamondColor.color}  />
+          <mesh castShadow receiveShadow geometry={nodes.diamonds004.geometry} material={materials.diamonds004} material-color={diamondColor.color}  />
+          <mesh castShadow receiveShadow geometry={nodes.diamonds005.geometry} material={materials.diamonds005} material-color={diamondColor.color}  />
+          
+          <mesh castShadow receiveShadow geometry={nodes.gold.geometry} material={materials.gold} material-color={firstMetalColor.color} />
+          <mesh castShadow receiveShadow geometry={nodes.silver.geometry} material={materials.silver} material-color={secondMetalColor.color}  />
         </group>
       </group>
     </group>
