@@ -1,12 +1,9 @@
 {
   "name": "3d-configurator",
-  "homepage": "https://hajoura89.github.io/3D-Configurator",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
