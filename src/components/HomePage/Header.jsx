@@ -8,7 +8,7 @@ export const Header = () => {
 			<div className="flex items-center text-5xl">
 				<img
 					className="h-24 w-24"
-					src="./src/assets/logo.svg"
+					src="./logo.svg"
 					alt=""
 				/>
 			</div>

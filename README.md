@@ -35,9 +35,14 @@ To run RingAffinity locally, follow these steps:
 1. Clone this repository:
 
 git clone https://github.com/hajoura89/3D-Configurator
+
 2. Navigate to the project directory:
 
 cd 3D-Configurator
+
+3. Install Dependencies
+
+npm install
 
 4. Start the  server:
 
