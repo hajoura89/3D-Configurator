@@ -1,15 +1,15 @@
-import { useGLTF } from '@react-three/drei'
-import { useFrame, useThree } from '@react-three/fiber';
+import { MeshRefractionMaterial, useGLTF } from '@react-three/drei'
+import { useFrame, useLoader, useThree } from '@react-three/fiber';
 import gsap from "gsap";
 import { useLayoutEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useControls } from "leva";
 
 export const ItemModel = () => {
     const {nodes, materials} = useGLTF("ring.glb ");
     const {scene, camera} = useThree();
     const tl = gsap.timeline();
- 	
+
+
     useLayoutEffect(() => {
 		new ScrollTrigger({});
 		// component About.tsx
@@ -102,12 +102,19 @@ export const ItemModel = () => {
                 castShadow
                 scale={1.063}
                 position={[3, 1, -1]} 
-                //rotation-x={-Math.PI * 0.2}
                 rotation={[0, 0.3, 0.9]}
             >
-                <mesh castShadow geometry={nodes.gold.geometry} material={materials.gold} />
+                <mesh castShadow geometry={nodes.gold.geometry} material={materials.gold}>
+                    {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+                </mesh>
+
+                {/* <mesh castShadow geometry={nodes.gold.geometry} material={materials.gold}>
+                    <MeshStandardMaterial envMap={texture} />
+                </mesh> */}
+
                 <mesh castShadow geometry={nodes.silver.geometry} material={materials.silver} />
-                <mesh castShadow geometry={nodes.diamonds002.geometry} material={nodes.diamonds002.material} />
+                <mesh castShadow geometry={nodes.diamonds002.geometry}  material={nodes.diamonds002.material}>
+                </mesh>
                 <mesh castShadow geometry={nodes.diamonds001.geometry} material={nodes.diamonds001.material} />
                 <mesh castShadow geometry={nodes.diamonds003.geometry} material={nodes.diamonds003.material} />
                 <mesh castShadow geometry={nodes.diamonds005.geometry} material={nodes.diamonds005.material} />

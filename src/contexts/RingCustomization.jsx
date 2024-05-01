@@ -1,37 +1,49 @@
 import { createContext, useContext, useState } from "react";
 
 const diamondColors = [
-    {
-        color: "#683434",
-        name: "brown",
+      {
+        color: "#f70db1",
+        name: "ruby",
       },
       {
-        color: "#1a5e1a",
-        name: "green",
+        color: "#CFECEC",
+        name: "faint",
       },
       {
-        color: "#659994",
-        name: "blue",
+        color: "#a9cbe2",
+        name: "fancy",
       },
       {
-        color: "#896599",
-        name: "mauve",
+        color: "#62cffe",
+        name: "aqua",
       },
       {
-        color: "#ffa500",
+        color: "#76dce4",
+        name: "swiss",
+      },
+      {
+        color: "#efe75b",
+        name: "yellow",
+      },
+      {
+        color: "#eb8e17",
         name: "orange",
       },
       {
-        color: "#59555b",
-        name: "grey",
+        color: "#17ebb5",
+        name: "green",
       },
       {
-        color: "#222222",
-        name: "black",
+        color: "#5eca00",
+        name: "emerald",
       },
       {
-        color: "#ececec",
-        name: "white",
+        color: "#fa37d7",
+        name: "rose",
+      },
+      {
+        color: "#c200f2",
+        name: "violet",
       },
 ];
 

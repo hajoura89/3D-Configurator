@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.2.16 ring.glb
 */
 
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { MeshRefractionMaterial, useGLTF, useTexture } from '@react-three/drei'
 import { useCustomization } from "../contexts/RingCustomization";
 
 
@@ -18,14 +18,29 @@ export default function Ring(props) {
       <group position={[0, -0.043, -0.093]}>
         <group rotation={[0, 0, 0.9]} scale={1.063}>
           
-          <mesh castShadow receiveShadow geometry={nodes.diamonds.geometry} material={materials.diamonds} material-color={diamondColor.color}  />
-          <mesh castShadow receiveShadow geometry={nodes.diamonds001.geometry} material={materials.diamonds001} material-color={diamondColor.color}  />
-          <mesh castShadow receiveShadow geometry={nodes.diamonds002.geometry} material={materials.diamonds002} material-color={diamondColor.color} />
-          <mesh castShadow receiveShadow geometry={nodes.diamonds003.geometry} material={materials.diamonds003} material-color={diamondColor.color}  />
-          <mesh castShadow receiveShadow geometry={nodes.diamonds004.geometry} material={materials.diamonds004} material-color={diamondColor.color}  />
-          <mesh castShadow receiveShadow geometry={nodes.diamonds005.geometry} material={materials.diamonds005} material-color={diamondColor.color}  />
           
-          <mesh castShadow receiveShadow geometry={nodes.gold.geometry} material={materials.gold} material-color={firstMetalColor.color} />
+          <mesh castShadow receiveShadow geometry={nodes.diamonds.geometry} material={materials.diamonds} material-color={diamondColor.color}>
+              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+           </mesh>  
+          <mesh castShadow receiveShadow geometry={nodes.diamonds001.geometry} material={materials.diamonds001} material-color={diamondColor.color}>
+              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+          </mesh>  
+          <mesh castShadow receiveShadow geometry={nodes.diamonds002.geometry} material={materials.diamonds002} material-color={diamondColor.color}>
+              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+          </mesh>  
+          <mesh castShadow receiveShadow geometry={nodes.diamonds003.geometry} material={materials.diamonds003} material-color={diamondColor.color}>
+              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+          </mesh>  
+          <mesh castShadow receiveShadow geometry={nodes.diamonds004.geometry} material={materials.diamonds004} material-color={diamondColor.color}>
+              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+          </mesh>  
+          <mesh castShadow receiveShadow geometry={nodes.diamonds005.geometry} material={materials.diamonds005} material-color={diamondColor.color}>
+              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+          </mesh>  
+          
+          <mesh castShadow receiveShadow geometry={nodes.gold.geometry} material={materials.gold} material-color={firstMetalColor.color}>
+
+          </mesh>
           <mesh castShadow receiveShadow geometry={nodes.silver.geometry} material={materials.silver} material-color={secondMetalColor.color}  />
         </group>
       </group>
