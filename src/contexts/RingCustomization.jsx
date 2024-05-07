@@ -79,7 +79,7 @@ const secondMetalColors = [
 const CustomizationContext = createContext({});
 
 export const CustomizationProvider = (props) => {
-  const [diamondColor, setDiamondColor] = useState(diamondColors[7]);
+  const [diamondColor, setDiamondColor] = useState(diamondColors[1]);
   const [firstMetalColor, setFirstMetalColor] = useState(firstMetalColors[1]);
   const [secondMetalColor, setSecondMetalColor] = useState(secondMetalColors[0]);
 

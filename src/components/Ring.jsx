@@ -17,6 +17,7 @@ export default function Ring(props) {
   // const texture = useLoader(RGBELoader, '/aerodynamics_workshop_1k.hdr')
 
   // texture.crossOrigin = null ;
+
   
   return (
     <group {...props} dispose={null}>
@@ -24,22 +25,25 @@ export default function Ring(props) {
         <group rotation={[0, 0, 0.9]} scale={1.063}>
           
           
-          <mesh castShadow receiveShadow geometry={nodes.diamonds.geometry} material={materials.diamonds} material-color={diamondColor.color}>
+          <mesh castShadow receiveShadow geometry={nodes.diamonds.geometry} material={nodes.diamonds.material} material-color={diamondColor.color}>
               {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
            </mesh>  
-          <mesh castShadow receiveShadow geometry={nodes.diamonds001.geometry} material={materials.diamonds001} material-color={diamondColor.color}>
+
+          {/* <mesh castShadow receiveShadow geometry={nodes.diamonds.geometry} material={nodes.diamonds.material} material-color={diamondColor.color}/> */}
+          
+          <mesh castShadow receiveShadow geometry={nodes.diamonds001.geometry} material={nodes.diamonds001.material} material-color={diamondColor.color}>
               {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
           </mesh>  
-          <mesh castShadow receiveShadow geometry={nodes.diamonds002.geometry} material={materials.diamonds002} material-color={diamondColor.color}>
+          <mesh castShadow receiveShadow geometry={nodes.diamonds002.geometry} material={nodes.diamonds002.material} material-color={diamondColor.color}>
               {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
           </mesh>  
-          <mesh castShadow receiveShadow geometry={nodes.diamonds003.geometry} material={materials.diamonds003} material-color={diamondColor.color}>
+          <mesh castShadow receiveShadow geometry={nodes.diamonds003.geometry} material={nodes.diamonds003.material} material-color={diamondColor.color}>
               {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
           </mesh>  
-          <mesh castShadow receiveShadow geometry={nodes.diamonds004.geometry} material={materials.diamonds004} material-color={diamondColor.color}>
+          <mesh castShadow receiveShadow geometry={nodes.diamonds004.geometry} material={nodes.diamonds004.material} material-color={diamondColor.color}>
               {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
           </mesh>  
-          <mesh castShadow receiveShadow geometry={nodes.diamonds005.geometry} material={materials.diamonds005} material-color={diamondColor.color}>
+          <mesh castShadow receiveShadow geometry={nodes.diamonds005.geometry} material={nodes.diamonds005.material} material-color={diamondColor.color}>
               {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
           </mesh>  
           
@@ -47,6 +51,7 @@ export default function Ring(props) {
 
           </mesh>
           <mesh castShadow receiveShadow geometry={nodes.silver.geometry} material={materials.silver} material-color={secondMetalColor.color}  />
+
         </group>
       </group>
     </group>

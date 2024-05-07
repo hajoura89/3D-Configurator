@@ -3,12 +3,14 @@ import { useFrame, useLoader, useThree } from '@react-three/fiber';
 import gsap from "gsap";
 import { useLayoutEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { RGBELoader } from 'three-stdlib';
 
 export const ItemModel = () => {
     const {nodes, materials} = useGLTF("ring.glb ");
     const {scene, camera} = useThree();
     const tl = gsap.timeline();
 
+    // const texture = useLoader(RGBELoader, 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr')
 
     useLayoutEffect(() => {
 		new ScrollTrigger({});
