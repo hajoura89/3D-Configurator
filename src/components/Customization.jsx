@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Ring from "./Ring";
 import { BakeShadows, OrbitControls, Stage } from "@react-three/drei";
@@ -8,6 +8,27 @@ import { CustomizationProvider } from "../contexts/RingCustomization";
  
 const Customization = () => {
     const navigate = useNavigate();
+    const canvas = useRef(null);
+    const [canvasImage, setCanvasImage] = useState(null);
+
+    const captureCanvas = async () => {
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+        const dataURL = canvas.current.toDataURL();
+        const a = document.createElement("a");
+        a.href = dataURL;
+        a.download = "customization.png";
+        a.click();
+
+        try {
+        const response = await axios.post("http://localhost:8800/upload", {
+            image: dataURL,
+        });
+        console.log(response.data);
+        } catch (error) {
+        console.error("Error uploading image:", error);
+        }
+     };
+
 
     return (
         <>
@@ -15,12 +36,17 @@ const Customization = () => {
                 <div className="flex h-screen w-full">
                     <div className="w-3/4 relative">
                         <button 
-                            className="absolute top-0 right-0 m-4 font-rubix p-2 bg-pink-800 text-white font-medium rounded-lg z-10" 
+                            className="absolute top-0 left-0 m-4 font-rubix p-2 bg-pink-800 text-white font-medium rounded-lg z-10" 
                             onClick={() => navigate(-1)}>
-                            Go Back Home
+                            Go Back
                         </button>
-                        
-                        <Canvas shadows camera={{ position: [0, 0, 150], fov: 40 }}>
+                        <button 
+                            className="absolute top-0 right-0 m-4 font-rubix p-2 bg-pink-800 text-white font-medium rounded-lg z-10" 
+                            onClick={captureCanvas}>
+                            Capture
+                        </button>
+                       
+                        <Canvas ref={canvas} shadows camera={{ position: [0, 0, 150], fov: 40 }}>
                             <Stage environment="city" intensity={0.8}>
                                 <Ring scale={-1} rotation={[0, 0.5, Math.PI]} position={[-2, 0, -2]} />
                             </Stage>

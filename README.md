@@ -44,7 +44,7 @@ cd 3D-Configurator
 
 npm install
 
-4. Start the  server:
+4. Start the web app:
 
 npm run dev
 

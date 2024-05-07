@@ -5,7 +5,7 @@ import {
     Route,
 } from "react-router-dom";
 import Home from "./components/Home";
-import About from "./components/Customization";
+import Customization from "./components/Customization";
  
 function App() {
     return (
@@ -20,7 +20,7 @@ function App() {
                     <Route
                         exact
                         path="/customization"
-                        element={<About />}
+                        element={<Customization />}
                     />
                 </Routes>
             </BrowserRouter>
