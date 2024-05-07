@@ -7,16 +7,17 @@ import React, { useEffect, useRef } from 'react'
 import { MeshRefractionMaterial, useGLTF, useTexture } from '@react-three/drei'
 import { useCustomization } from "../contexts/RingCustomization";
 import { useLoader } from '@react-three/fiber';
-import { RGBELoader } from 'three-stdlib';
+// import { RGBELoader } from 'three-stdlib';
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 
 
 export default function Ring(props) {
   const { nodes, materials } = useGLTF('/ring.glb')
   const { diamondColor, firstMetalColor, secondMetalColor } = useCustomization();
 
-  // const texture = useLoader(RGBELoader, '/aerodynamics_workshop_1k.hdr')
+  const texture = useLoader(RGBELoader, 'https://ringaffinity.vercel.app/aerodynamics_workshop_1k.hdr')
   // const texture = useLoader(RGBELoader, 'https://cors-anywhere.herokuapp.com/https://ringaffinity.vercel.app/aerodynamics_workshop_1k.hdr');
-  // const texture = useLoader(RGBELoader, 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr')
+  // const texture = useLoader(RGBELoader, '/aerodynamics_workshop_1k.hdr')
   
   return (
     <group {...props} dispose={null}>
@@ -25,25 +26,23 @@ export default function Ring(props) {
           
           
           <mesh castShadow receiveShadow geometry={nodes.diamonds.geometry} material={nodes.diamonds.material} material-color={diamondColor.color}>
-              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+              <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} />
            </mesh>  
-
-          {/* <mesh castShadow receiveShadow geometry={nodes.diamonds.geometry} material={nodes.diamonds.material} material-color={diamondColor.color}/> */}
-          
+ 
           <mesh castShadow receiveShadow geometry={nodes.diamonds001.geometry} material={nodes.diamonds001.material} material-color={diamondColor.color}>
-              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+              <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} />
           </mesh>  
           <mesh castShadow receiveShadow geometry={nodes.diamonds002.geometry} material={nodes.diamonds002.material} material-color={diamondColor.color}>
-              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+              <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} />
           </mesh>  
           <mesh castShadow receiveShadow geometry={nodes.diamonds003.geometry} material={nodes.diamonds003.material} material-color={diamondColor.color}>
-              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+              <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} />
           </mesh>  
           <mesh castShadow receiveShadow geometry={nodes.diamonds004.geometry} material={nodes.diamonds004.material} material-color={diamondColor.color}>
-              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+              <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} />
           </mesh>  
           <mesh castShadow receiveShadow geometry={nodes.diamonds005.geometry} material={nodes.diamonds005.material} material-color={diamondColor.color}>
-              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+              <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} />
           </mesh>  
           
           <mesh castShadow receiveShadow geometry={nodes.gold.geometry} material={materials.gold} material-color={firstMetalColor.color}>
