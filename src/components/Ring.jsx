@@ -6,12 +6,17 @@ Command: npx gltfjsx@6.2.16 ring.glb
 import React, { useRef } from 'react'
 import { MeshRefractionMaterial, useGLTF, useTexture } from '@react-three/drei'
 import { useCustomization } from "../contexts/RingCustomization";
+import { useLoader } from '@react-three/fiber';
+import { RGBELoader } from 'three-stdlib';
 
 
 export default function Ring(props) {
   const { nodes, materials } = useGLTF('/ring.glb')
   const { diamondColor, firstMetalColor, secondMetalColor } = useCustomization();
 
+  const texture = useLoader(RGBELoader, '/aerodynamics_workshop_1k.hdr')
+
+  // texture.crossOrigin = null ;
   
   return (
     <group {...props} dispose={null}>
@@ -20,7 +25,7 @@ export default function Ring(props) {
           
           
           <mesh castShadow receiveShadow geometry={nodes.diamonds.geometry} material={materials.diamonds} material-color={diamondColor.color}>
-              {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+              <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} />
            </mesh>  
           <mesh castShadow receiveShadow geometry={nodes.diamonds001.geometry} material={materials.diamonds001} material-color={diamondColor.color}>
               {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
