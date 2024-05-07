@@ -5,6 +5,7 @@ import Ring from "./Ring";
 import { BakeShadows, OrbitControls, Stage } from "@react-three/drei";
 import Configurator from "./Configurator";
 import { CustomizationProvider } from "../contexts/RingCustomization";
+import axios from 'axios';
  
 const Customization = () => {
     const navigate = useNavigate();
@@ -14,12 +15,22 @@ const Customization = () => {
     const captureCanvas = async () => {
         await new Promise((resolve) => requestAnimationFrame(resolve));
         const dataURL = canvas.current.toDataURL();
+        // Send captured image data to backend server
+        axios.post('http://localhost:3000/upload', { imageData: dataURL })
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+            });
         const a = document.createElement("a");
         a.href = dataURL;
         a.download = "customization.png";
         a.click();
-
+ 
+ 
      };
+ 
 
 
     return (
