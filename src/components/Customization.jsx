@@ -19,14 +19,6 @@ const Customization = () => {
         a.download = "customization.png";
         a.click();
 
-        try {
-        const response = await axios.post("http://localhost:8800/upload", {
-            image: dataURL,
-        });
-        console.log(response.data);
-        } catch (error) {
-        console.error("Error uploading image:", error);
-        }
      };
 
 
