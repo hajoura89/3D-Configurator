@@ -1,9 +1,8 @@
-import { MeshRefractionMaterial, useGLTF } from '@react-three/drei'
-import { useFrame, useLoader, useThree } from '@react-three/fiber';
+import {useGLTF, useTexture } from '@react-three/drei'
+import {useThree } from '@react-three/fiber';
 import gsap from "gsap";
 import { useLayoutEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 
 
 export const ItemModel = () => {
@@ -11,8 +10,10 @@ export const ItemModel = () => {
     const {scene, camera} = useThree();
     const tl = gsap.timeline();
 
-    // const texture = useLoader(RGBELoader, '/aerodynamics_workshop_1k.hdr')
-
+    // const texture = useTexture('Texture/diamond_.jpg')
+    // const texture = useTexture('Texture/pinkish-diamond.jpg')
+    const texture = useTexture('Texture/diamond.jpg')
+    
     useLayoutEffect(() => {
 		new ScrollTrigger({});
 		// component About.tsx
@@ -110,22 +111,22 @@ export const ItemModel = () => {
                 <mesh castShadow geometry={nodes.gold.geometry} material={materials.gold} />
                 <mesh castShadow geometry={nodes.silver.geometry} material={materials.silver} />
                 <mesh castShadow geometry={nodes.diamonds002.geometry}  material={nodes.diamonds002.material}>
-                    {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+                    <meshPhysicalMaterial map={texture} clearcoat={1} clearcoatRoughness={0} roughness={0} metalness={0.5} />
                 </mesh>
                 <mesh castShadow geometry={nodes.diamonds001.geometry} material={nodes.diamonds001.material} >
-                    {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+                    <meshPhysicalMaterial map={texture} clearcoat={1} clearcoatRoughness={0} roughness={0} metalness={0.5} />
                 </mesh>
                 <mesh castShadow geometry={nodes.diamonds003.geometry} material={nodes.diamonds003.material} >
-                    {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+                    <meshPhysicalMaterial map={texture} clearcoat={1} clearcoatRoughness={0} roughness={0} metalness={0.5} />
                 </mesh>
                 <mesh castShadow geometry={nodes.diamonds005.geometry} material={nodes.diamonds005.material} >
-                    {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+                    <meshPhysicalMaterial map={texture} clearcoat={1} clearcoatRoughness={0} roughness={0} metalness={0.5} />
                 </mesh>
                 <mesh castShadow geometry={nodes.diamonds.geometry} material={nodes.diamonds.material} >
-                    {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+                    <meshPhysicalMaterial map={texture} clearcoat={1} clearcoatRoughness={0} roughness={0} metalness={0.5} />
                 </mesh>
                 <mesh castShadow geometry={nodes.diamonds004.geometry} material={nodes.diamonds004.material} >
-                    {/* <MeshRefractionMaterial envMap={texture} aberrationStrength={0.02} toneMapped={false} /> */}
+                    <meshPhysicalMaterial map={texture} clearcoat={1} clearcoatRoughness={0} roughness={0} metalness={0.5} />
                 </mesh>
                 
             </group>

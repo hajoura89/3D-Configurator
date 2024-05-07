@@ -49,29 +49,29 @@ const diamondColors = [
 
 const firstMetalColors = [
   {
-    color: "#C0C0C0",
+    color: "#D8DEE2",
     name: "silver",
   },
   {
-    color: "#FFBD19",
+    color: "#CCA828",
     name: "gold",
   },
   {
-    color: "#B76E79",
+    color: "#CFA39C",
     name: "rose",
   },
 ];
 const secondMetalColors = [
   {
-    color: "#C0C0C0",
+    color: "#D8DEE2",
     name: "silver",
   },
   {
-    color: "#FFBD19",
+    color: "#CCA828",
     name: "gold",
   },
   {
-    color: "#B76E79",
+    color: "#CFA39C",
     name: "rose",
   },
 ];
