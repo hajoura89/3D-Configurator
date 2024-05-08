@@ -44,7 +44,11 @@ cd 3D-Configurator
 
 npm install
 
-4. Start the web app:
+4. Start the backend server
+cd image-server
+node server.js
+
+5. Start the web app:
 
 npm run dev
 
