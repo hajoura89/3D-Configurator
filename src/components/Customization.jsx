@@ -1,12 +1,13 @@
-import { Canvas } from "@react-three/fiber";
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Ring from "./Ring";
+import { Canvas } from "@react-three/fiber";
 import { BakeShadows, OrbitControls, Stage } from "@react-three/drei";
+import Ring from "./Ring";
 import Configurator from "./Configurator";
-import { CustomizationProvider } from "../contexts/RingCustomization";
+import ImageDisplay from "./ImageDisplay";
 import axios from 'axios';
- 
+import { CustomizationProvider } from "../contexts/RingCustomization";
+
 const Customization = () => {
     const navigate = useNavigate();
     const canvas = useRef(null);
@@ -27,28 +28,31 @@ const Customization = () => {
         a.href = dataURL;
         a.download = "customization.png";
         a.click();
- 
- 
-     };
- 
-
+    };
 
     return (
         <>
             <CustomizationProvider>
                 <div className="flex h-screen w-full">
                     <div className="w-3/4 relative">
-                        <button 
-                            className="absolute top-0 left-0 m-4 font-rubix p-2 bg-pink-800 text-white font-medium rounded-lg z-10" 
+                        <button
+                            className="absolute top-0 left-0 m-4 font-rubix p-2 bg-pink-800 text-white font-medium rounded-lg z-10"
                             onClick={() => navigate(-1)}>
                             Go Back
                         </button>
-                        <button 
-                            className="absolute top-0 right-0 m-4 font-rubix p-2 bg-pink-800 text-white font-medium rounded-lg z-10" 
+                        <button
+                            className="absolute top-0 right-0 m-4 font-rubix p-2 bg-pink-800 text-white font-medium rounded-lg z-10"
                             onClick={captureCanvas}>
                             Capture
                         </button>
-                       
+                        <button 
+                            onClick={() =>navigate("/imagedisplay") }
+
+                            className="invisible absolute top-0 right-20 m-4 font-rubix p-2 bg-pink-800 text-white font-medium rounded-lg z-10"
+                            >
+                            Captured Designs
+                        </button>
+
                         <Canvas ref={canvas} shadows camera={{ position: [0, 0, 150], fov: 40 }}>
                             <Stage environment="city" intensity={0.8}>
                                 <Ring scale={-1} rotation={[0, 0.5, Math.PI]} position={[-2, 0, -2]} />
@@ -65,5 +69,5 @@ const Customization = () => {
         </>
     );
 };
- 
+
 export default Customization;

@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./components/Home";
 import Customization from "./components/Customization";
+import ImageDisplay from "./components/ImageDisplay";
  
 function App() {
     return (
@@ -21,6 +22,11 @@ function App() {
                         exact
                         path="/customization"
                         element={<Customization />}
+                    />
+                    <Route
+                        exact
+                        path="/imagedisplay"
+                        element={<ImageDisplay />}
                     />
                 </Routes>
             </BrowserRouter>

@@ -3,18 +3,12 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const cors = require('cors');
 
-
 const app = express();
 const port = 3000;
 
-
-// Increase payload size limit (e.g., 50MB)
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors());
-
-
-
 
 // Create MySQL connection
 const connection = mysql.createConnection({
@@ -30,7 +24,7 @@ connection.connect();
 
 // Endpoint to handle image upload
 app.post('/upload', (req, res) => {
- const imageData = req.body.imageData; // Assuming imageData is sent from frontend
+ const imageData = req.body.imageData;
  // Insert imageData into MySQL database
  connection.query('INSERT INTO images (data) VALUES (?)', [imageData], (error, results, fields) => {
    if (error) throw error;
@@ -53,6 +47,13 @@ app.get('/images/:id', (req, res) => {
  });
 });
 
+// Endpoint to retrieve all images
+app.get('/images', (req, res) => {
+  connection.query('SELECT * FROM images', (error, results, fields) => {
+    if (error) throw error;
+    res.status(200).json({ imageData: results });
+  });
+});
 
 app.listen(port, () => {
  console.log(`Server is running on port ${port}`);
